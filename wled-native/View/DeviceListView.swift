@@ -68,12 +68,23 @@ struct DeviceListView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     VStack {
-                        Image(.wledLogoAkemi)
+                        Image(.shlLogo)
                             .resizable()
                             .scaledToFit()
                             .padding(2)
                     }
                     .frame(maxWidth: 200)
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu {
+                        Link("Track Lighting Install Guide", destination: URL(string: "https://cdn.shopify.com/s/files/1/0648/4498/8646/files/Install_Guide.pdf?v=1694578321")!)
+                        Button("Power Injection Guide") {
+                            // Action for Power Injection Guide
+                        }
+                        // Add more buttons as needed
+                    } label: {
+                        Label("More Options", systemImage: "line.horizontal.3")
+                    }
                 }
                 ToolbarItem {
                     Menu {
@@ -97,7 +108,16 @@ struct DeviceListView: View {
                         Label("Add Item", systemImage: "ellipsis.circle")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        // Action for settings button
+                        print("Settings tapped")
+                    }) {
+                        Image(systemName: "gear")
+                    }
+                }
             }
+
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $addDeviceButtonActive, content: DeviceAddView.init)
             Text("Select an item")

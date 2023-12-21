@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9A9E5BC2918D1C3005B5C22"
-               BuildableName = "wled-native.app"
-               BlueprintName = "wled-native"
-               ReferencedContainer = "container:wled-native.xcodeproj">
+               BuildableName = "SHL.app"
+               BlueprintName = "SHL"
+               ReferencedContainer = "container:SHL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9A9E5BC2918D1C3005B5C22"
-            BuildableName = "wled-native.app"
-            BlueprintName = "wled-native"
-            ReferencedContainer = "container:wled-native.xcodeproj">
+            BuildableName = "SHL.app"
+            BlueprintName = "SHL"
+            ReferencedContainer = "container:SHL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9A9E5BC2918D1C3005B5C22"
-            BuildableName = "wled-native.app"
-            BlueprintName = "wled-native"
-            ReferencedContainer = "container:wled-native.xcodeproj">
+            BuildableName = "SHL.app"
+            BlueprintName = "SHL"
+            ReferencedContainer = "container:SHL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
