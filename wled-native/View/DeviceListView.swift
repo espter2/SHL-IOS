@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 import CoreData
 
@@ -77,11 +75,11 @@ struct DeviceListView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Menu {
-                        Link("Track Lighting Install Guide", destination: URL(string: "https://cdn.shopify.com/s/files/1/0648/4498/8646/files/Install_Guide.pdf?v=1694578321")!)
-                        Button("Power Injection Guide") {
-                            // Action for Power Injection Guide
-                        }
-                        // Add more buttons as needed
+                        Link("Track Lighting Install Guide", destination: URL(string: "https://showhomelighting.com/pages/manual")!)
+                        Link("Power Injection Guide", destination: URL(string: "https://showhomelighting.com/pages/power-injection-guide")!)
+                        Link("ShowHome Lighting", destination: URL(string: "https://showhomelighting.com")!)
+                            .buttonStyle(.plain) // Optional: Adjust button style as needed
+                        // Add more links or buttons as needed
                     } label: {
                         Label("More Options", systemImage: "line.horizontal.3")
                     }
@@ -108,16 +106,8 @@ struct DeviceListView: View {
                         Label("Add Item", systemImage: "ellipsis.circle")
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        // Action for settings button
-                        print("Settings tapped")
-                    }) {
-                        Image(systemName: "gear")
-                    }
-                }
+                // Removed ToolbarItem for settings gear
             }
-
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $addDeviceButtonActive, content: DeviceAddView.init)
             Text("Select an item")
@@ -132,8 +122,7 @@ struct DeviceListView: View {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // Handle the error appropriately
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -145,7 +134,6 @@ struct DeviceListView: View {
         let deviceApi = DeviceApi()
         await withTaskGroup(of: Void.self) { [self] group in
             for device in devices {
-                // Don't start a refresh request when the device is not done refreshing.
                 if (device.isRefreshing) {
                     continue
                 }
@@ -161,7 +149,6 @@ struct DeviceListView: View {
     
     private func refreshDevicesSync(devices: [Device]) {
         Task {
-            print("auto-refreshing")
             await refreshDevices(devices: devices)
         }
     }
